@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Typing Master</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Master</h1>
+        <p id="quote">Type the text below:</p>
+        <div id="display-text">The quick brown fox jumps over the lazy dog.</div>
+        <textarea id="input-field" placeholder="Start typing here..."></textarea>
+        <div class="stats">
+            <span>WPM: <span id="wpm">0</span></span>
+            <span>Time: <span id="timer">0</span>s</span>
+        </div>
+        <button id="reset-btn">Restart</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
