@@ -1,0 +1,34 @@
+const textToType = "The quick brown fox jumps over the lazy dog.";
+const display = document.getElementById('display-text');
+const input = document.getElementById('input-field');
+const wpmDisplay = document.getElementById('wpm');
+const timerDisplay = document.getElementById('timer');
+
+let startTime;
+let timerInterval;
+
+input.addEventListener('input', () => {
+    if (!startTime) {
+        startTime = new Date();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+    
+    if (input.value === textToType) {
+        clearInterval(timerInterval);
+        calculateWPM();
+        alert("Finished!");
+    }
+});
+
+function updateTimer() {
+    const currentTime = Math.floor((new Date() - startTime) / 1000);
+    timerDisplay.innerText = currentTime;
+}
+
+function calculateWPM() {
+    const timeTaken = (new Date() - startTime) / 1000 / 60; // in minutes
+    const words = textToType.split(' ').length;
+    wpmDisplay.innerText = Math.round(words / timeTaken);
+}
+
+document.getElementById('reset-btn').onclick = () => location.reload();
